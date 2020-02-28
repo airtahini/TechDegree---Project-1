@@ -13,7 +13,7 @@ project 1 - A Random Quote Generator
 
 
 
-// I am aiming for a grade of 'meets expectations' but added a tagged property to my objects. 
+// I am aiming for a grade of 'meets expectations' but added a tagged property to my objects.
 
 
 const quoteIdeas = [
@@ -76,10 +76,10 @@ const getRandomQuote = () => {
 }
 
 
-// below is a variable 'message' that will hold the object we are printing to screen
+
 
 /***
- * the `printQuote` function creates a varial 'message' that holds a string of my quote and it's properties.
+ * the `printQuote` function creates a variable 'message' that holds a string of my quote and it's properties.
  The function calls a randomly generated quote.
  Finally, the function creates the string that will appear on the screen.
 ***/
@@ -89,12 +89,15 @@ const printQuote = () => {
   let selectedQuote = quoteIdeas[getRandomQuote()];
 message = `<p class = "quote">${selectedQuote.quote}</p>`;
 message += `<p class = "source">${selectedQuote.source}`
+// if the quote contains a citation, add to string
   if (selectedQuote.citation) {
   message += `<span class = "citation">${selectedQuote.citation}</span>`
 }
+// if the quote contains a year, add to string
   if (selectedQuote.year) {
   message += `<span class ="year">${selectedQuote.year}</span>`
 }
+// if the quote contains a tag, add to string
   if (selectedQuote.tags) {
   message += `<span class = "tags">, tagged: ${selectedQuote.tags}</span>`
 }
