@@ -11,6 +11,11 @@ project 1 - A Random Quote Generator
  * `quotes` array
 ***/
 
+
+
+// I am aiming for a grade of 'meets expectations' but added a tagged property to my objects. 
+
+
 const quoteIdeas = [
 
   {
@@ -31,14 +36,16 @@ const quoteIdeas = [
     quote: "Whistling to keep myself from being afraid."  ,
     source: "John Dryden" ,
     citation: "Amphitryon",
-    year: 1690
+    year: 1690,
+    tags: "Courage"
 },
 
   {
     quote: "It's true that things are beautiful when they work. Art is function."  ,
     source: "Giannina Braschi" ,
     citation: "Empire of Dreams",
-    year: 1994
+    year: 1994,
+    tags: "Art"
 },
 
   {
@@ -47,6 +54,13 @@ const quoteIdeas = [
     citation: "The Soul of a Butterfly",
     year: 2004
 },
+
+{
+    quote: "Jesus, I must be crazy to be in a loony-bin like this." ,
+    source: "Randle McMurphy" ,
+    citation: "One Flew Over the Cuckoo's Nest",
+    year: 1975
+}
 
 ]
 
@@ -58,32 +72,37 @@ const quoteIdeas = [
 
 const getRandomQuote = () => {
   let randomNumber = Math.floor(Math.random() * quoteIdeas.length);
-  return randomNumber
+  return randomNumber;
 }
 
 
 // below is a variable 'message' that will hold the object we are printing to screen
-let message;
+
 /***
- * the `printQuote` function
+ * the `printQuote` function creates a varial 'message' that holds a string of my quote and it's properties.
+ The function calls a randomly generated quote.
+ Finally, the function creates the string that will appear on the screen.
 ***/
 
 const printQuote = () => {
-let selectedQuote = quoteIdeas[getRandomQuote()];
-message = '<p> class = "quote">' + selectedQuote.quote + '</p>'
-message += '<p> class = "source">' + selectedQuote.source
-
-if (selectedQuote.citation) {
-  message += 'span class = "citation">' + selectedQuote.citation + '</span>'
-} else if (selectedQuote.year) {
-  message += 'span class = "year">' + selectedQuote.year + '</span>'
+  let message;
+  let selectedQuote = quoteIdeas[getRandomQuote()];
+message = `<p class = "quote">${selectedQuote.quote}</p>`;
+message += `<p class = "source">${selectedQuote.source}`
+  if (selectedQuote.citation) {
+  message += `<span class = "citation">${selectedQuote.citation}</span>`
 }
-  message += '</p>'
+  if (selectedQuote.year) {
+  message += `<span class ="year">${selectedQuote.year}</span>`
+}
+  if (selectedQuote.tags) {
+  message += `<span class = "tags">, tagged: ${selectedQuote.tags}</span>`
+}
+  message += '</p>';
+  return document.getElementById('quote-box').innerHTML = message;
 }
 
-printQuote()
-
-document.getElementById('quote-box').innerHTML = message;
+printQuote();
 
 
 
