@@ -16,7 +16,7 @@ project 1 - A Random Quote Generator
 // I am aiming for a grade of 'meets expectations' but added a tagged property to my objects.
 
 
-const quoteIdeas = [
+const quotes = [
 
   {
     quote: "Beauty is something that disappears when you try to define it."  ,
@@ -71,7 +71,7 @@ const quoteIdeas = [
 ***/
 
 const getRandomQuote = () => {
-  let randomNumber = Math.floor(Math.random() * quoteIdeas.length);
+  let randomNumber = Math.floor(Math.random() * quotes.length);
   return randomNumber;
 }
 
@@ -86,7 +86,7 @@ const getRandomQuote = () => {
 
 const printQuote = () => {
   let message;
-  let selectedQuote = quoteIdeas[getRandomQuote()];
+  let selectedQuote = quotes[getRandomQuote()];
 message = `<p class = "quote">${selectedQuote.quote}</p>`;
 message += `<p class = "source">${selectedQuote.source}`
 // if the quote contains a citation, add to string
